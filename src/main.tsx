@@ -9,7 +9,7 @@ import { RouterProvider } from 'react-router-dom'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <ThemeProvider>
+    <ThemeProvider >
       <Provider store={store}>
         <RouterProvider router={router} />
       </Provider>

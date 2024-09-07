@@ -5,6 +5,7 @@ const routes: RouteObject[] = [
   {
     path: "/",
     element: <App />,
+    errorElement: <div>Some thing went wrong, page not found!</div>,
   },
 ];
 
