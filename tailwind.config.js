@@ -11,8 +11,13 @@ export default withMT({
   
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#004AAD",
+        secondary: "#e2e8f0",
+        green: "#82A821"
+      }
+    },
   },
   plugins: [],
 })
-

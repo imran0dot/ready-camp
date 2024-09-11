@@ -2,10 +2,15 @@ import React from 'react';
 import banner2 from '../../assets/banner-hero.jpg';
 import CategoryBox from '../../components/widgets/CategoryBox';
 import Wrapper from '../../components/shared/wrapper/Wrapper';
-import campingImage from "../../assets/camping-category-img.webp"
-import womanImage from "../../assets/woman-category-img.webp"
-import manImage from "../../assets/man-category-img.webp"
-import footwearImage from "../../assets/Foot-wear-category-img.webp"
+import campingImage from "../../assets/camping-category-img.webp";
+import womanImage from "../../assets/woman-category-img.webp";
+import manImage from "../../assets/man-category-img.webp";
+import footwearImage from "../../assets/Foot-wear-category-img.webp";
+import warehouseImage from "../../assets/warehouse-clearance.webp"
+import backToSchoolImage from "../../assets/backtoschool.webp"
+import PeterStromImage from "../../assets/peter-strom.webp"
+import halfPriceImage from "../../assets/half-price.webp"
+
 
 type TCategory = {
     img: string,
@@ -33,6 +38,26 @@ const categoryList: TCategory[] = [
     }
 ]
 
+const popularShoppingList: TCategory[] = [
+    {
+        img: warehouseImage,
+        name: "Camping",
+        link: "#"
+    }, {
+        img: backToSchoolImage,
+        name: "Camping",
+        link: "#"
+    }, {
+        img: halfPriceImage,
+        name: "Camping",
+        link: "#"
+    }, {
+        img: PeterStromImage,
+        name: "Camping",
+        link: "#"
+    }
+]
+
 const Home: React.FC = () => {
     return (
         <>
@@ -53,7 +78,7 @@ const Home: React.FC = () => {
                     items-center
                     text-white'
             >
-                
+
             </section>
 
             {/* category section */}
@@ -69,10 +94,33 @@ const Home: React.FC = () => {
                         {
                             categoryList.map(category => <CategoryBox
                                 key={category.name}
-                                name={category.name}
+                                link={category.link}
                                 img={category.img}
                             />)
                         }
+                    </div>
+                </Wrapper>
+            </section>
+
+            {/* popular shopping  */}
+            <section>
+                <Wrapper>
+                    <div 
+                        className='
+                            grid
+                            grid-cols-2
+                            md:grid-cols-2
+                            gap-5
+                            m-5
+                        '
+                        >
+                        {
+                            popularShoppingList?.map(popularShopping => <CategoryBox
+                                key={popularShopping.name}
+                                link={popularShopping.link}
+                                img={popularShopping.img}
+                            />)
+                         }
                     </div>
                 </Wrapper>
             </section>

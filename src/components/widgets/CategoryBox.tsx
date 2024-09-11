@@ -1,19 +1,19 @@
 import React from 'react';
 
 type TCategoryBox = {
-    name: string,
     img: string
+    link: string
 }
 
-const CategoryBox: React.FC<TCategoryBox> = ({ img }) => {
+const CategoryBox: React.FC<TCategoryBox> = ({ img, link }) => {
     console.log(img)
     return (
-        <div>
+        <a href={link? link : "#"}>
             <img
-                className='w-96'
+                className='w-full'
                 src={img}
                 alt="dfd" />
-        </div>
+        </a>
     );
 };
 
