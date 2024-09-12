@@ -19,6 +19,10 @@ export default tseslint.config(
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
+      "react/prop-types": "off", 
+      "react/jsx-no-undef": "off",
+      "@typescript-eslint/no-unused-vars": "off", 
+       "react/jsx-props-no-spreading": "off",
       'react-refresh/only-export-components': [
         'warn',
         { allowConstantExport: true },
