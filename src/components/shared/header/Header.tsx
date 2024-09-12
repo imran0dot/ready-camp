@@ -3,6 +3,7 @@ import { Navbar, Collapse, Button, IconButton } from "@material-tailwind/react";
 import { Bars3Icon, XMarkIcon, } from "@heroicons/react/24/outline";
 import Logo from "../../widgets/Logo";
 import NavList from "../../widgets/NavList";
+import UserNav from "../../widgets/UserNav";
 
 const Header = () => {
     const [openNav, setOpenNav] = React.useState(false);
@@ -29,8 +30,13 @@ const Header = () => {
                     <NavList />
                 </div>
 
+                {/* user naviagtion  */}
+                <div>
+                    <UserNav />
+                </div>
+
                 {/* contact now btn  */}
-                <div className="hidden gap-2 lg:flex">
+                {/* <div className="hidden gap-2 lg:flex">
                     <Button
                         variant="filled"
                         size="md"
@@ -40,7 +46,8 @@ const Header = () => {
                         onPointerLeaveCapture={undefined}>
                         Contact Now
                     </Button>
-                </div>
+                </div> */}
+
 
                 <IconButton
                     variant="text"

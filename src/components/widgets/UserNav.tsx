@@ -1,33 +1,31 @@
+import { UserIcon } from "@heroicons/react/16/solid";
+import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import {
     Typography,
     List,
-    ListItem
+    ListItem,
 } from "@material-tailwind/react";
 
-const navMenuList: { name: string, link: string }[] = [
+interface TNavMenuItem {
+    name: string;
+    link: string;
+    icon: JSX.Element;
+}
+
+const navMenuList: TNavMenuItem[] = [
     {
-        name: 'home',
-        link: '/'
+        name: 'cart',
+        link: '/cart',
+        icon: <ShoppingCartIcon />
     },
     {
-        name: 'Gadgets',
-        link: '/'
-    },
-    {
-        name: 'Tools',
-        link: '/'
-    },
-    {
-        name: 'about us',
-        link: '/about'
-    },
-    {
-        name: 'contact us',
-        link: '/contact'
+        name: 'Account',
+        link: '/',
+        icon: <UserIcon />
     }
 ];
 
-const NavList = () => {
+const UserNav = () => {
     return (
         <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
             {
@@ -43,11 +41,15 @@ const NavList = () => {
                     onPointerLeaveCapture={undefined}
                 >
                     <ListItem
-                        className="flex items-center gap-2 py-2 pr-4"
+                        className="flex items-center py-2"
                         placeholder={undefined}
                         onPointerEnterCapture={undefined}
                         onPointerLeaveCapture={undefined}>
-                        {menu.name}
+                        <span className="w-5 mr-3">{menu.icon}</span>
+                        <Typography
+                            placeholder={undefined}
+                            onPointerEnterCapture={undefined}
+                            onPointerLeaveCapture={undefined} >{menu.name}</Typography>
                     </ListItem>
 
                 </Typography>)
@@ -56,5 +58,5 @@ const NavList = () => {
     );
 };
 
-export default NavList;
+export default UserNav;
 
