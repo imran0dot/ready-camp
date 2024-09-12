@@ -70,7 +70,8 @@ const Home: React.FC = () => {
                 }}
                 className='
                     w-full 
-                    h-[400px] 
+                    h-[300px]
+                    md:h-[400px] 
                     overflow-hidden 
                     flex 
                     flex-col 

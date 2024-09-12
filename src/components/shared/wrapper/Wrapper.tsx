@@ -5,7 +5,6 @@ const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <div
             className='
                 max-w-screen-2xl 
-                border 
                 mx-auto'>
             {children}
         </div>
