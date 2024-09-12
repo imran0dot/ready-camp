@@ -5,6 +5,7 @@ import About from "../pages/About/About";
 import Cart from "../pages/cart/Cart";
 import Gadgets from "../pages/gadgets/Gadgets";
 import Tools from "../pages/tools/Tools";
+import Account from "../pages/account/Account";
 
 const routes: RouteObject[] = [
   {
@@ -30,6 +31,16 @@ const routes: RouteObject[] = [
       {
         path: "/cart",
         element: <Cart />
+      },
+      {
+        path: "/account",
+        element: <Account />,
+        children: [
+          {
+            path: "tools",
+            element: <Tools />
+          },
+        ]
       }
     ],
     errorElement: <div>Some thing went wrong, page not found!</div>,
