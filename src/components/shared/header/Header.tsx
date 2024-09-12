@@ -23,15 +23,30 @@ const Header = () => {
             placeholder={undefined}
             onPointerEnterCapture={undefined}
             onPointerLeaveCapture={undefined}>
-            <div className="flex items-center justify-between text-blue-gray-900 max-w-screen-2xl mx-auto">
-                <Logo className="w-[170px]" />
+            <div className="flex items-center md:justify-between text-blue-gray-900 max-w-screen-2xl mx-auto">
+
+                <div className="flex justify-center items-center">
+                    <IconButton
+                        variant="text"
+                        color="blue-gray"
+                        className="lg:hidden"
+                        onClick={() => setOpenNav(!openNav)} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}        >
+                        {openNav ? (
+                            <XMarkIcon className="h-6 w-6" strokeWidth={2} />
+                        ) : (
+                            <Bars3Icon className="h-6 w-6" strokeWidth={2} />
+                        )}
+                    </IconButton>
+
+                    <Logo className="w-[170px]" />
+                </div>
 
                 <div className="hidden lg:block">
                     <NavList />
                 </div>
 
-                {/* user naviagtion  */}
-                <div>
+                {/* user menu  */}
+                <div className="flex justify-end items-end">
                     <UserNav />
                 </div>
 
@@ -49,24 +64,14 @@ const Header = () => {
                 </div> */}
 
 
-                <IconButton
-                    variant="text"
-                    color="blue-gray"
-                    className="lg:hidden"
-                    onClick={() => setOpenNav(!openNav)} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}        >
-                    {openNav ? (
-                        <XMarkIcon className="h-6 w-6" strokeWidth={2} />
-                    ) : (
-                        <Bars3Icon className="h-6 w-6" strokeWidth={2} />
-                    )}
-                </IconButton>
+
             </div>
 
             {/* mobile menu collapse  */}
             <Collapse open={openNav}>
                 <NavList />
                 <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
-                    <Button variant="outlined" size="sm" color="blue-gray" fullWidth placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                    <Button variant="filled" size="sm" color="blue-gray" fullWidth placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                         Contact now
                     </Button>
                 </div>

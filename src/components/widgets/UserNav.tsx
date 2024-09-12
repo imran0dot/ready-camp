@@ -28,13 +28,13 @@ const navMenuList: TNavMenuItem[] = [
 
 const UserNav = () => {
     return (
-        <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+        <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 flex-row justify-end lg:p-1" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
             {
                 navMenuList.map((menu, index) => <Link 
                     key={index}
                     to={menu.link}
                     color="blue-gray"
-                    className="font-medium capitalize font-b"
+                    className="font-medium capitalize"
                 >
                     <ListItem
                         className="flex items-center py-2"
@@ -43,6 +43,7 @@ const UserNav = () => {
                         onPointerLeaveCapture={undefined}>
                         <span className="w-5 mr-3">{menu.icon}</span>
                         <Typography
+                            className="hidden md:block"
                             placeholder={undefined}
                             onPointerEnterCapture={undefined}
                             onPointerLeaveCapture={undefined} >{menu.name}</Typography>

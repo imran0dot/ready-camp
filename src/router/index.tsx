@@ -3,6 +3,8 @@ import App from "../App";
 import Home from "../pages/Home/Home";
 import About from "../pages/About/About";
 import Cart from "../pages/cart/Cart";
+import Gadgets from "../pages/gadgets/Gadgets";
+import Tools from "../pages/tools/Tools";
 
 const routes: RouteObject[] = [
   {
@@ -12,6 +14,14 @@ const routes: RouteObject[] = [
       {
         path: "/",
         element: <Home />
+      },
+      {
+        path: "/gadgets",
+        element: <Gadgets />
+      },
+      {
+        path: "/tools",
+        element: <Tools />
       },
       {
         path: "/about",
