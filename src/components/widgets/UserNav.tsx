@@ -5,6 +5,7 @@ import {
     List,
     ListItem,
 } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 
 interface TNavMenuItem {
     name: string;
@@ -29,16 +30,11 @@ const UserNav = () => {
     return (
         <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
             {
-                navMenuList.map((menu, index) => <Typography
+                navMenuList.map((menu, index) => <Link 
                     key={index}
-                    as="a"
-                    href={menu.link}
-                    variant="paragraph"
+                    to={menu.link}
                     color="blue-gray"
                     className="font-medium capitalize font-b"
-                    placeholder={undefined}
-                    onPointerEnterCapture={undefined}
-                    onPointerLeaveCapture={undefined}
                 >
                     <ListItem
                         className="flex items-center py-2"
@@ -52,7 +48,7 @@ const UserNav = () => {
                             onPointerLeaveCapture={undefined} >{menu.name}</Typography>
                     </ListItem>
 
-                </Typography>)
+                </Link>)
             }
         </List>
     );
