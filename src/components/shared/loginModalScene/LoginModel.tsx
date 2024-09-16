@@ -26,9 +26,9 @@ const LoginModel: React.FC<{
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 
     const onSubmit: SubmitHandler<FormData> = (data) => {
-        // console.log(data); // This should now work
-        handleOpen(); // Close the dialog after submission if needed
-    };
+        console.log(data); 
+        handleOpen();
+    }
 
     return (
         <div>

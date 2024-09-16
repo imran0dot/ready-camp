@@ -1,6 +1,5 @@
 import {
     Card,
-    Typography,
     List,
     ListItem,
     ListItemPrefix,
