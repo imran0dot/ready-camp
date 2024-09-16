@@ -93,8 +93,8 @@ const Home: React.FC = () => {
                             gap-5
                             m-5'>
                         {
-                            categoryList.map(category => <CategoryBox
-                                key={category.name}
+                            categoryList.map((category, index) => <CategoryBox
+                                key={index}
                                 link={category.link}
                                 img={category.img}
                             />)
@@ -116,8 +116,8 @@ const Home: React.FC = () => {
                         '
                         >
                         {
-                            popularShoppingList?.map(popularShopping => <CategoryBox
-                                key={popularShopping.name}
+                            popularShoppingList?.map((popularShopping, index) => <CategoryBox
+                                key={index}
                                 link={popularShopping.link}
                                 img={popularShopping.img}
                             />)

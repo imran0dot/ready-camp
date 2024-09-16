@@ -6,7 +6,6 @@ type TCategoryBox = {
 }
 
 const CategoryBox: React.FC<TCategoryBox> = ({ img, link }) => {
-    console.log(img)
     return (
         <a href={link? link : "#"}>
             <img

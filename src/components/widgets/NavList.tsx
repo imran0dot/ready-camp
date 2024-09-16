@@ -26,7 +26,6 @@ const navMenuList: { name: string, link: string }[] = [
 
 const NavList = () => {
     const location = useLocation();
-    console.log(location.pathname);
     return (
         <div
             className="

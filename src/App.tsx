@@ -2,7 +2,7 @@ import Footer from './components/shared/footer/Footer';
 import Header from './components/shared/header/Header'
 import { Outlet, useLocation } from "react-router-dom";
 import PreFooter from './components/shared/preFooter/PreFooter';
-import LoginModal from './components/shared/loginScene/LoginModal';
+import LoginModal from './components/shared/loginModalScene/LoginModal';
 
 function App() {
   const location = useLocation();
