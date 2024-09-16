@@ -1,4 +1,3 @@
-import React from "react";
 import {
     Button,
     Dialog,
@@ -9,16 +8,15 @@ import {
     Input,
     Checkbox,
 } from "@material-tailwind/react";
-import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
-import { switchModal } from "../../../redux/features/loginSlice";
 
-const LoginModal = () => {
-    const { isShow } = useAppSelector(state => state.loginModal);
-    const dispatch = useAppDispatch();
-    const handleOpen = () => dispatch(switchModal());
+const RegisterModel: React.FC<{
+    isShow: boolean,
+    handleOpen: () => void,
+    setLoginModal: (t: string) => void
+}> = ({ isShow, handleOpen, setLoginModal }) => {
 
     return (
-        <>
+        <div>
             <Dialog
                 size="xs"
                 open={isShow}
@@ -45,7 +43,7 @@ const LoginModal = () => {
                             placeholder={undefined}
                             onPointerEnterCapture={undefined}
                             onPointerLeaveCapture={undefined}>
-                            Sign In
+                            Sign Up
                         </Typography>
 
                         <Typography
@@ -55,7 +53,7 @@ const LoginModal = () => {
                             placeholder={undefined}
                             onPointerEnterCapture={undefined}
                             onPointerLeaveCapture={undefined} >
-                            Enter your email and password to Sign In.
+                            Enter your email and password to Sign Up.
                         </Typography>
 
                         <Typography
@@ -119,7 +117,7 @@ const LoginModal = () => {
                             placeholder={undefined}
                             onPointerEnterCapture={undefined}
                             onPointerLeaveCapture={undefined}>
-                            Don&apos;t have an account?
+                            Do have an account?
 
                             <Typography
                                 as="a"
@@ -127,15 +125,15 @@ const LoginModal = () => {
                                 variant="small"
                                 color="blue-gray"
                                 className="ml-1 font-bold"
-                                onClick={handleOpen} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}              >
-                                Sign up
+                                onClick={() => setLoginModal('login')} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}              >
+                                Sign in
                             </Typography>
                         </Typography>
                     </CardFooter>
                 </Card>
             </Dialog>
-        </>
+        </div>
     );
 };
 
-export default LoginModal;
+export default RegisterModel;
