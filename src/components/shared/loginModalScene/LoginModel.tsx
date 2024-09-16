@@ -11,9 +11,10 @@ import {
 import React from "react";
 
 const LoginModel: React.FC<{
-    isShow: boolean, 
-    handleOpen: () => void, 
-    setLoginModal: (t: string) => void}> = ({isShow, handleOpen, setLoginModal}) => {
+    isShow: boolean,
+    handleOpen: () => void,
+    setLoginModal: (t: string) => void
+}> = ({ isShow, handleOpen, setLoginModal }) => {
     return (
         <div>
             <Dialog
@@ -118,12 +119,10 @@ const LoginModel: React.FC<{
                             Don&apos;t have an account?
 
                             <Typography
-                                as="a"
-                                href="#signup"
+                                className="cursor-pointer ml-1 font-bold"
                                 variant="small"
                                 color="blue-gray"
-                                className="ml-1 font-bold"
-                                onClick={() => setLoginModal('register')} 
+                                onClick={() => setLoginModal('register')}
                                 placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}              >
                                 Sign up
                             </Typography>
