@@ -8,7 +8,7 @@ import {
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/reduxHooks";
-import { switchModal } from "../../redux/features/loginSlice";
+import { switchModal } from "../../redux/features/loginModalSlice";
 
 interface TNavMenuItem {
     name: string;

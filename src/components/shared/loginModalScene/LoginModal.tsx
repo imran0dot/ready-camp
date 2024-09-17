@@ -1,5 +1,5 @@
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
-import { switchModal } from "../../../redux/features/loginSlice";
+import { switchModal } from "../../../redux/features/loginModalSlice";
 import LoginModel from "./LoginModel";
 import RegisterModel from "./RegisterModel";
 import { useState } from "react";

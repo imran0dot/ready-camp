@@ -12,6 +12,7 @@ import {
 import { SubmitHandler, useForm } from "react-hook-form";
 
 type FormData = {
+    name: string,
     email: string,
     password: string,
     rememberMe: boolean
@@ -26,6 +27,21 @@ const RegisterModel: React.FC<{
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 
     const onSubmit: SubmitHandler<FormData> = (data) => {
+
+        // TODO Send data to backend
+        fetch(`${import.meta.env.VITE_API_URL}user`, {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email: data.email,
+                password: data.password,
+                username: data.name
+            })
+        })
+        .then(res => console.log(res))
+        .catch(err => console.log(err))
         console.log(data);
         handleOpen();
     };
@@ -51,11 +67,25 @@ const RegisterModel: React.FC<{
                         </Typography>
 
                         <Typography className="-mb-2" variant="h6"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                            Your Name
+                        </Typography>
+
+                        <Input
+                            onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined} label="name"
+                            required
+                            size="lg"
+                            {...register("name", { required: "name is required" })}
+                            error={!!errors.name}      
+                                              />
+                        {errors.email && <span className="text-red-500">{errors.email.message as string}</span>}
+
+                        <Typography className="-mb-2" variant="h6"  placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
                             Your Email
                         </Typography>
 
                         <Input
-                            onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined} label="Email"
+                            onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined}
+                            required label="Email"
                             size="lg"
                             {...register("email", { required: "Email is required" })}
                             error={!!errors.email}      
@@ -69,6 +99,7 @@ const RegisterModel: React.FC<{
                         <Input
                             onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined} label="Password"
                             size="lg"
+                            required
                             type="password"
                             {...register("password", { required: "Password is required" })}
                             error={!!errors.password}                        />
