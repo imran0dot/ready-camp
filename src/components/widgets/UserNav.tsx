@@ -34,9 +34,9 @@ const UserNav = () => {
     return (
         <List
             className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 flex-row justify-end lg:p-1"
-            placeholder={undefined}
-            onPointerEnterCapture={undefined}
-            onPointerLeaveCapture={undefined}>
+            
+            
+            >
             {
                 navMenuList.map((menu, index) => {
                     if (menu.name === 'Account') {
@@ -46,20 +46,20 @@ const UserNav = () => {
                             onClick={() => dispatch(switchModal())}
                             color="blue-gray"
                             className="font-medium capitalize p-0"
-                            placeholder={undefined}
-                            onPointerEnterCapture={undefined}
-                            onPointerLeaveCapture={undefined}                        >
+                            
+                            
+                                                    >
                             <ListItem
                                 className="flex items-center py-2"
-                                placeholder={undefined}
-                                onPointerEnterCapture={undefined}
-                                onPointerLeaveCapture={undefined}>
+                                
+                                
+                                >
                                 <span className="w-5 mr-3">{menu.icon}</span>
                                 <Typography
                                     className="hidden md:block"
-                                    placeholder={undefined}
-                                    onPointerEnterCapture={undefined}
-                                    onPointerLeaveCapture={undefined} >{menu.name}</Typography>
+                                    
+                                    
+                                     >{menu.name}</Typography>
                             </ListItem>
 
                         </Button>
@@ -72,15 +72,15 @@ const UserNav = () => {
                     >
                         <ListItem
                             className="flex items-center py-2"
-                            placeholder={undefined}
-                            onPointerEnterCapture={undefined}
-                            onPointerLeaveCapture={undefined}>
+                            
+                            
+                            >
                             <span className="w-5 mr-3">{menu.icon}</span>
                             <Typography
                                 className="hidden md:block"
-                                placeholder={undefined}
-                                onPointerEnterCapture={undefined}
-                                onPointerLeaveCapture={undefined} >{menu.name}</Typography>
+                                
+                                
+                                 >{menu.name}</Typography>
                         </ListItem>
 
                     </Link>

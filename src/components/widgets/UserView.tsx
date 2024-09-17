@@ -11,23 +11,23 @@ export const UserView = () => {
     return (
         <Card
             className="w-96 shadow-none"
-            placeholder={undefined}
-            onPointerEnterCapture={undefined}
-            onPointerLeaveCapture={undefined}>
+            
+            
+            >
 
             <List
-                placeholder={undefined}
-                onPointerEnterCapture={undefined}
-                onPointerLeaveCapture={undefined}>
-                <ListItem placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-                    <ListItemPrefix placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
-                        <Avatar variant="circular" alt="candice" src="https://docs.material-tailwind.com/img/face-1.jpg" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} />
+                
+                
+                >
+                <ListItem   >
+                    <ListItemPrefix   >
+                        <Avatar variant="circular" alt="candice" src="https://docs.material-tailwind.com/img/face-1.jpg"    />
                     </ListItemPrefix>
                     <div>
-                        <Typography variant="h6" color="blue-gray" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                        <Typography variant="h6" color="blue-gray"   >
                             Tania Andrew
                         </Typography>
-                        <Typography variant="small" color="gray" className="font-normal" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                        <Typography variant="small" color="gray" className="font-normal"   >
                             Software Engineer @ Material Tailwind
                         </Typography>
                     </div>

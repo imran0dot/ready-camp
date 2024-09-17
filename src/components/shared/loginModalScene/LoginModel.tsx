@@ -36,37 +36,37 @@ const LoginModel: React.FC<{
                 size="sm"
                 open={isShow}
                 handler={handleOpen}
-                className="bg-transparent shadow-none" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                className="bg-transparent shadow-none"   >
 
-                <Card className="mx-auto w-full max-w-[24rem]" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                <Card className="mx-auto w-full max-w-[24rem]"   >
 
-                    <CardBody className="flex flex-col gap-4" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                    <CardBody className="flex flex-col gap-4"   >
 
-                        <Typography variant="h4" color="blue-gray" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                        <Typography variant="h4" color="blue-gray"   >
                             Sign In
                         </Typography>
 
-                        <Typography className="mb-3 font-normal" variant="paragraph" color="gray" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                        <Typography className="mb-3 font-normal" variant="paragraph" color="gray"   >
                             Enter your email and password to Sign In.
                         </Typography>
 
-                        <Typography className="-mb-2" variant="h6" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                        <Typography className="-mb-2" variant="h6"   >
                             Your Email
                         </Typography>
 
                         <Input
-                            onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined} label="Email"
+                              crossOrigin={undefined} label="Email"
                             size="lg"
                             {...register("email", { required: "Email is required" })}
                             error={!!errors.email} />
                         {errors.email && <span className="text-red-500">{errors.email.message}</span>}
 
-                        <Typography className="-mb-2" variant="h6" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                        <Typography className="-mb-2" variant="h6"   >
                             Your Password
                         </Typography>
 
                         <Input
-                            onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined} label="Password"
+                              crossOrigin={undefined} label="Password"
                             type="password"
                             size="lg"
                             {...register("password", { required: "Password is required" })}
@@ -75,27 +75,27 @@ const LoginModel: React.FC<{
 
                         <div className="-ml-2.5 -mt-3">
                             <Checkbox
-                                onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined} crossOrigin={undefined} label="Remember Me"
+                                  crossOrigin={undefined} label="Remember Me"
                                 {...register("rememberMe")} />
                         </div>
                     </CardBody>
 
-                    <CardFooter className="pt-0" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                    <CardFooter className="pt-0"   >
                         <Button
                             variant="filled"
                             className="bg-primary"
                             fullWidth
                             onClick={handleSubmit(onSubmit)}
-                            placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}                        >
+                                                      >
                             Sign In
                         </Button>
-                        <Typography variant="small" className="mt-4 flex justify-center" placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                        <Typography variant="small" className="mt-4 flex justify-center"   >
                             Don&apos;t have an account?
                             <Typography
                                 className="cursor-pointer ml-1 font-bold"
                                 variant="small"
                                 color="blue-gray"
-                                onClick={() => setLoginModal('register')} placeholder={undefined} onPointerEnterCapture={undefined} onPointerLeaveCapture={undefined}>
+                                onClick={() => setLoginModal('register')}   >
                                 Sign up
                             </Typography>
                         </Typography>

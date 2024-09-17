@@ -21,24 +21,24 @@ const MainFilter: React.FC = () => {
                     <Input
                         {...register("exampleRequired", { required: true })}
                         label="Username"
-                        onPointerEnterCapture={undefined}
-                        onPointerLeaveCapture={undefined}
+                        
+                        
                         crossOrigin={undefined} />
 
                     <Input
                         {...register("exampleRequired", { required: true })}
                         label="item"
-                        onPointerEnterCapture={undefined}
-                        onPointerLeaveCapture={undefined}
+                        
+                        
                         crossOrigin={undefined} />
                 </div>
 
                 <Button
                     type='submit'
                     className='flex items-center gap-3 bg-indigo-600'
-                    onPointerEnterCapture={undefined}
-                    onPointerLeaveCapture={undefined}
-                    placeholder={undefined}>
+                    
+                    
+                    >
                         Search
                     <MagnifyingGlassIcon className='inline w-[30px] ml-2' />
                 </Button>
