@@ -9,7 +9,7 @@ import { RouterProvider } from 'react-router-dom'
 import {} from "@material-tailwind/react";
 
 type EventCapture = {
-placeholder?: unknown;
+  placeholder?: unknown;
   onPointerEnterCapture?: unknown;
   onPointerLeaveCapture?: unknown;
 };

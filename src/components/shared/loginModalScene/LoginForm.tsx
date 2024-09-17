@@ -10,6 +10,7 @@ import {
 } from "@material-tailwind/react";
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useLoginMutation, useRegisterMutation } from "../../../redux/features/auth/authApi";
 
 type FormData = {
     email: string,
@@ -17,18 +18,25 @@ type FormData = {
     rememberMe: boolean
 }
 
-const LoginModel: React.FC<{
+const LoginForm: React.FC<{
     isShow: boolean,
     handleOpen: () => void,
     setLoginModal: (t: string) => void
 }> = ({ isShow, handleOpen, setLoginModal }) => {
-
+    const [loginHandler, {data, error}] = useLoginMutation();
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 
     const onSubmit: SubmitHandler<FormData> = (data) => {
-        console.log(data); 
+        const userInfo = {
+            email: data.email,
+            password: data.password
+        }
+        loginHandler(userInfo); 
         handleOpen();
     }
+    
+    console.log(`data => ${data}`)
+    console.log(`registerError => ${error}`)
 
     return (
         <div>
@@ -106,4 +114,4 @@ const LoginModel: React.FC<{
     );
 };
 
-export default LoginModel;
+export default LoginForm;

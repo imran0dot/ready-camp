@@ -1,6 +1,6 @@
 import { useAppDispatch, useAppSelector } from "../../../hooks/reduxHooks";
 import { switchModal } from "../../../redux/features/loginModalSlice";
-import LoginModel from "./LoginModel";
+import LoginForm from "./LoginForm";
 import RegisterModel from "./RegisterModel";
 import { useState } from "react";
 
@@ -11,7 +11,7 @@ const LoginModal = () => {
     const [loginModal, setLoginModal] = useState('login')
 
     return loginModal === 'login' ?
-        <LoginModel
+        <LoginForm
             setLoginModal={setLoginModal}
             handleOpen={handleOpen}
             isShow={isShow} /> :
