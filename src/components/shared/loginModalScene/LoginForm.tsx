@@ -13,6 +13,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { useLoginMutation, useRegisterMutation } from "../../../redux/features/auth/authApi";
 import { useAppDispatch } from "../../../hooks/reduxHooks";
 import { setUser } from "../../../redux/features/auth/authSlice";
+import { useNavigate } from "react-router-dom";
 
 type FormData = {
     email: string,
@@ -25,6 +26,7 @@ const LoginForm: React.FC<{
     handleOpen: () => void,
     setLoginModal: (t: string) => void
 }> = ({ isShow, handleOpen, setLoginModal }) => {
+    const navigator = useNavigate();
     const [loginHandler] = useLoginMutation();
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
     const dispatch = useAppDispatch();
@@ -34,15 +36,18 @@ const LoginForm: React.FC<{
             email: data.email,
             password: data.password
         }
-        const loginData = await loginHandler(userInfo).unwrap(); 
-        const user = loginData.data;
-        const token = loginData.token;
-        // setUser({user, token});
-        dispatch(setUser({user, token}))
-        console.log({user, token})
-        // handleOpen();
+        const loginData = await loginHandler(userInfo).unwrap();
+
+        if (loginData) {
+            const user = loginData.data;
+            const token = loginData.token;
+            dispatch(setUser({ user, token }));
+            navigator('/account')
+        }
+
+        handleOpen();
     }
-    
+
 
     return (
         <div>
@@ -69,7 +74,7 @@ const LoginForm: React.FC<{
                         </Typography>
 
                         <Input
-                              crossOrigin={undefined} label="Email"
+                            crossOrigin={undefined} label="Email"
                             size="lg"
                             {...register("email", { required: "Email is required" })}
                             error={!!errors.email} />
@@ -80,7 +85,7 @@ const LoginForm: React.FC<{
                         </Typography>
 
                         <Input
-                              crossOrigin={undefined} label="Password"
+                            crossOrigin={undefined} label="Password"
                             type="password"
                             size="lg"
                             {...register("password", { required: "Password is required" })}
@@ -89,7 +94,7 @@ const LoginForm: React.FC<{
 
                         <div className="-ml-2.5 -mt-3">
                             <Checkbox
-                                  crossOrigin={undefined} label="Remember Me"
+                                crossOrigin={undefined} label="Remember Me"
                                 {...register("rememberMe")} />
                         </div>
                     </CardBody>
@@ -100,7 +105,7 @@ const LoginForm: React.FC<{
                             className="bg-primary"
                             fullWidth
                             onClick={handleSubmit(onSubmit)}
-                                                      >
+                        >
                             Sign In
                         </Button>
                         <Typography variant="small" className="mt-4 flex justify-center"   >

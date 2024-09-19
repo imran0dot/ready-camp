@@ -6,6 +6,7 @@ import Cart from "../pages/cart/Cart";
 import Gadgets from "../pages/gadgets/Gadgets";
 import Tools from "../pages/tools/Tools";
 import Account from "../pages/account/Account";
+import ProtectedRoutes from "../components/layout/ProtectedRoutes";
 
 const routes: RouteObject[] = [
   {
@@ -34,7 +35,7 @@ const routes: RouteObject[] = [
       },
       {
         path: "/account",
-        element: <Account />,
+        element: <ProtectedRoutes><Account /></ProtectedRoutes>,
         children: [
           {
             path: "tools",

@@ -7,8 +7,9 @@ import {
     Button,
 } from "@material-tailwind/react";
 import { Link } from "react-router-dom";
-import { useAppDispatch } from "../../hooks/reduxHooks";
+import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { switchModal } from "../../redux/features/loginModalSlice";
+import { useCurrentUser } from "../../redux/features/auth/authSlice";
 
 interface TNavMenuItem {
     name: string;
@@ -24,42 +25,60 @@ const navMenuList: TNavMenuItem[] = [
     },
     {
         name: 'Account',
-        link: '/',
+        link: '/account',
         icon: <UserIcon />
     }
 ];
 
 const UserNav = () => {
     const dispatch = useAppDispatch();
+
+    const user = useAppSelector(useCurrentUser);
     return (
         <List
             className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 flex-row justify-end lg:p-1"
-            
-            
-            >
+
+
+        >
             {
                 navMenuList.map((menu, index) => {
                     if (menu.name === 'Account') {
-                      return  <Button
+                        if (user) {
+                            return <Link
+                                to={menu.link}
+                                className="
+                                    font-medium 
+                                    capitalize 
+                                    hover:bg-none 
+                                    text-blue-gray-800"
+                                key={index}>
+                                <div
+                                    className="flex justify-center items-center gap-2 py-2 px-2 mx-3 text-center">
+                                    <p>{menu.name}</p>
+                                </div>
+                                {menu.link === location.pathname && <div className="w-8/12 mx-auto -mt-1 border-t-2  border-primary"></div>}
+                            </Link>
+                        }
+                        return <Button
                             key={index}
                             variant="text"
                             onClick={() => dispatch(switchModal())}
                             color="blue-gray"
                             className="font-medium capitalize p-0"
-                            
-                            
-                                                    >
+
+
+                        >
                             <ListItem
                                 className="flex items-center py-2"
-                                
-                                
-                                >
+
+
+                            >
                                 <span className="w-5 mr-3">{menu.icon}</span>
                                 <Typography
                                     className="hidden md:block"
-                                    
-                                    
-                                     >{menu.name}</Typography>
+
+
+                                >{menu.name}</Typography>
                             </ListItem>
 
                         </Button>
@@ -72,15 +91,15 @@ const UserNav = () => {
                     >
                         <ListItem
                             className="flex items-center py-2"
-                            
-                            
-                            >
+
+
+                        >
                             <span className="w-5 mr-3">{menu.icon}</span>
                             <Typography
                                 className="hidden md:block"
-                                
-                                
-                                 >{menu.name}</Typography>
+
+
+                            >{menu.name}</Typography>
                         </ListItem>
 
                     </Link>
