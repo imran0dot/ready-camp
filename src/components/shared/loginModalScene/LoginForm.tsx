@@ -11,6 +11,8 @@ import {
 import React from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useLoginMutation, useRegisterMutation } from "../../../redux/features/auth/authApi";
+import { useAppDispatch } from "../../../hooks/reduxHooks";
+import { setUser } from "../../../redux/features/auth/authSlice";
 
 type FormData = {
     email: string,
@@ -23,20 +25,24 @@ const LoginForm: React.FC<{
     handleOpen: () => void,
     setLoginModal: (t: string) => void
 }> = ({ isShow, handleOpen, setLoginModal }) => {
-    const [loginHandler, {data, error}] = useLoginMutation();
+    const [loginHandler] = useLoginMutation();
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
+    const dispatch = useAppDispatch();
 
-    const onSubmit: SubmitHandler<FormData> = (data) => {
+    const onSubmit: SubmitHandler<FormData> = async (data) => {
         const userInfo = {
             email: data.email,
             password: data.password
         }
-        loginHandler(userInfo); 
-        handleOpen();
+        const loginData = await loginHandler(userInfo).unwrap(); 
+        const user = loginData.data;
+        const token = loginData.token;
+        // setUser({user, token});
+        dispatch(setUser({user, token}))
+        console.log({user, token})
+        // handleOpen();
     }
     
-    console.log(`data => ${data}`)
-    console.log(`registerError => ${error}`)
 
     return (
         <div>
