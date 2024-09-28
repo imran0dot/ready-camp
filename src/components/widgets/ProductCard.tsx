@@ -1,13 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const ProductCard: React.FC = () => {
     return (
         <div>
-            <div className="h-screen w-full flex items-center justify-center  bg-gray-200 dark:bg-gray-800">
 
-                <article className="max-w-sm w-full bg-white rounded-lg shadow-lg overflow-hidden dark:bg-gray-700">
+                <Link to={`/product/slug`} className="max-w-sm w-full bg-white rounded-lg shadow-lg overflow-hidden dark:bg-gray-700">
                     <div>
-                        <img className="object-cover h-64 w-full" src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxzbmVha2Vyc3xlbnwwfDB8fHwxNzEyMjIzNDAyfDA&ixlib=rb-4.0.3&q=80&w=1080" alt="Converse sneakers" />
+                        <img className="object-cover h-64 w-full" src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Converse sneakers" />
                     </div>
 
                     <div className="flex flex-col gap-1 mt-4 px-4">
@@ -36,9 +36,8 @@ const ProductCard: React.FC = () => {
                             </svg>
                         </button>
                     </div>
-                </article>
+                </Link>
             </div>
-        </div>
     );
 };
 

@@ -7,7 +7,7 @@ import Gadgets from "../pages/gadgets/Gadgets";
 import Tools from "../pages/(accounts)/tools/Tools";
 import ProtectedRoutes from "../components/layout/ProtectedRoutes";
 import Account from "../pages/(accounts)/account/Account";
-import { ArrowPathIcon, PresentationChartBarIcon } from "@heroicons/react/24/outline";
+import { ArchiveBoxArrowDownIcon, ArchiveBoxIcon, ArrowPathIcon, BookOpenIcon, GiftIcon, PencilIcon, PresentationChartBarIcon } from "@heroicons/react/24/outline";
 import OrderList from "../pages/(accounts)/orderList/OrderList";
 import ProductsList from "../pages/(accounts)/products/ProductsList";
 import SingleProduct from "../pages/(products)/singleProduct/SingleProduct";
@@ -18,6 +18,12 @@ interface ExtendedRouteObject {
   path: string;
   icon?: JSX.Element;
   element: JSX.Element;
+  subMenu?: {
+    path: string;
+    name: string;
+    icon?: JSX.Element;
+    element: JSX.Element;
+  }[]
 }
 
 
@@ -36,7 +42,27 @@ export const adminRoutes: ExtendedRouteObject[] = [
   {
     path: "products",
     icon: <PresentationChartBarIcon />,
-    element: <ProductsList />
+    element: <ProductsList />,
+    subMenu: [
+      {
+        path: "products",
+        name:'Products List',
+        icon: <GiftIcon />,
+        element: <ProductsList />,
+      },
+      {
+        path: "products",
+        name:'Create Products',
+        icon: <PencilIcon />,
+        element: <ProductsList />,
+      },
+      {
+        path: "products",
+        name:'Category',
+        icon: <ArchiveBoxIcon />,
+        element: <ProductsList />,
+      },
+    ]
   },
   {
     path: "order",
@@ -75,7 +101,7 @@ export const navigationItems: ExtendedNavObject[] = [
 ];
 
 
-export const systemRoutes: RouteObject[]  = [
+export const systemRoutes: RouteObject[] = [
   {
     path: "/cart",
     element: <Cart />
