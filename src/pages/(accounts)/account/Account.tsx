@@ -1,10 +1,10 @@
 import React from 'react';
-import { AccountSidebar } from '../../components/shared/accountSidebar/AccountSidebar';
 import { Outlet } from 'react-router-dom';
-import { UserView } from '../../components/widgets/UserView';
+import { AccountSidebar } from '../../../components/shared/accountSidebar/AccountSidebar';
+import { UserView } from '../../../components/widgets/UserView';
 
 const Account: React.FC = () => {
-    
+
     return (
         <div className='flex'>
             <AccountSidebar />
@@ -14,7 +14,10 @@ const Account: React.FC = () => {
                         <UserView />
                     </div>
                 </div>
-                <Outlet />
+
+                <div className='m-5'>
+                    <Outlet />
+                </div>
             </div>
         </div>
     );

@@ -95,6 +95,12 @@ declare module "@material-tailwind/react" {
     onPointerLeaveCapture?: unknown
     crossOrigin?: unknown
   }
+  export interface AvatarProps extends EventCapture {
+    placeholder?: unknown;
+    onPointerEnterCapture?: unknown
+    onPointerLeaveCapture?: unknown
+    crossOrigin?: unknown
+  }
 }
 
 createRoot(document.getElementById('root')!).render(

@@ -15,10 +15,7 @@ export const UserView = () => {
             
             >
 
-            <List
-                
-                
-                >
+            <List>
                 <ListItem   >
                     <ListItemPrefix   >
                         <Avatar variant="circular" alt="candice" src="https://docs.material-tailwind.com/img/face-1.jpg"    />

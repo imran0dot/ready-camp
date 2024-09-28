@@ -8,7 +8,7 @@ import {
     Input,
     Checkbox,
 } from "@material-tailwind/react";
-import React from "react";
+import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useLoginMutation, useRegisterMutation } from "../../../redux/features/auth/authApi";
 import { useAppDispatch } from "../../../hooks/reduxHooks";
@@ -26,6 +26,7 @@ const LoginForm: React.FC<{
     handleOpen: () => void,
     setLoginModal: (t: string) => void
 }> = ({ isShow, handleOpen, setLoginModal }) => {
+    const [backendError, setBackendError] = useState(null);
     const navigator = useNavigate();
     const [loginHandler] = useLoginMutation();
     const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
@@ -43,8 +44,9 @@ const LoginForm: React.FC<{
             const token = loginData.token;
             dispatch(setUser({ user, token }));
             navigator('/account')
-        }
+        };
 
+        setBackendError(loginData.message);
         handleOpen();
     }
 
@@ -97,6 +99,9 @@ const LoginForm: React.FC<{
                                 crossOrigin={undefined} label="Remember Me"
                                 {...register("rememberMe")} />
                         </div>
+
+                        
+                        {backendError && <span className="text-red-500">{backendError}</span>}
                     </CardBody>
 
                     <CardFooter className="pt-0"   >
