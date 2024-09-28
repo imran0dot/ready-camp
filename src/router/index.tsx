@@ -11,11 +11,19 @@ import { ArrowPathIcon, PresentationChartBarIcon } from "@heroicons/react/24/out
 import OrderList from "../pages/(accounts)/orderList/OrderList";
 import ProductsList from "../pages/(accounts)/products/ProductsList";
 import SingleProduct from "../pages/(products)/singleProduct/SingleProduct";
+import Products from "../pages/(products)/products/Products";
 
 
 interface ExtendedRouteObject {
   path: string;
   icon?: JSX.Element;
+  element: JSX.Element;
+}
+
+
+interface ExtendedNavObject {
+  path: string;
+  name?: string;
   element: JSX.Element;
 }
 
@@ -38,29 +46,41 @@ export const adminRoutes: ExtendedRouteObject[] = [
 ];
 
 
-const navigationItems: RouteObject[] = [
+export const navigationItems: ExtendedNavObject[] = [
   {
     path: "/",
+    name: 'home',
     element: <Home />
   },
   {
+    path: "/shop",
+    name: 'shop',
+    element: <Products />
+  },
+  {
     path: "/gadgets",
+    name: 'gadgets',
     element: <Gadgets />
   },
   {
     path: "/tools",
+    name: 'tools',
     element: <Tools />
   },
   {
     path: "/about",
+    name: 'about',
     element: <About />
-  },
+  }
+];
+
+
+export const systemRoutes: RouteObject[]  = [
   {
     path: "/cart",
     element: <Cart />
   },
 ]
-
 
 const productRoutes: RouteObject[] = [
   {
@@ -76,7 +96,8 @@ const routes: RouteObject[] = [
     element: <App />,
     children: [
       ...navigationItems,
-      ...productRoutes
+      ...productRoutes,
+      ...systemRoutes
     ]
   },
   {

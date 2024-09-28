@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+import { navigationItems } from "../../router";
 
 const navMenuList: { name: string, link: string }[] = [
     {
@@ -42,8 +43,8 @@ const NavList = () => {
             lg:flex-row 
             lg:p-1">
             {
-                navMenuList.map((menu, index) => <Link
-                    to={menu.link}
+                navigationItems.map((menu, index) => <Link
+                    to={menu.path as string}
                     className="
                     font-medium 
                     capitalize 
@@ -54,7 +55,7 @@ const NavList = () => {
                         className="flex justify-center items-center gap-2 py-2 px-2 mx-3 text-center">
                         <p>{menu.name}</p>
                     </div>
-                    {menu.link === location.pathname && <div className="w-8/12 mx-auto -mt-1 border-t-2  border-primary"></div>}
+                    {menu.path === location.pathname && <div className="w-8/12 mx-auto -mt-1 border-t-2  border-primary"></div>}
                 </Link>)
             }
         </div>

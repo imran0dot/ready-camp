@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ProductGrid: React.FC = () => {
+const ProductCard: React.FC = () => {
     return (
         <div>
             <div className="h-screen w-full flex items-center justify-center  bg-gray-200 dark:bg-gray-800">
@@ -42,4 +42,4 @@ const ProductGrid: React.FC = () => {
     );
 };
 
-export default ProductGrid;
+export default ProductCard;
