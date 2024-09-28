@@ -2,29 +2,6 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { navigationItems } from "../../router";
 
-const navMenuList: { name: string, link: string }[] = [
-    {
-        name: 'home',
-        link: '/'
-    },
-    {
-        name: 'Gadgets',
-        link: '/gadgets'
-    },
-    {
-        name: 'Tools',
-        link: '/tools'
-    },
-    {
-        name: 'about us',
-        link: '/about'
-    },
-    {
-        name: 'contact us',
-        link: '/contact'
-    }
-];
-
 const NavList = () => {
     const location = useLocation();
     return (

@@ -10,7 +10,7 @@ import {
 } from "@material-tailwind/react";
 import React, { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { useLoginMutation, useRegisterMutation } from "../../../redux/features/auth/authApi";
+import { useLoginMutation } from "../../../redux/features/auth/authApi";
 import { useAppDispatch } from "../../../hooks/reduxHooks";
 import { setUser } from "../../../redux/features/auth/authSlice";
 import { useNavigate } from "react-router-dom";

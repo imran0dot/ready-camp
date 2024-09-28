@@ -9,7 +9,7 @@ const Products: React.FC = () => {
             <Wrapper>
                 <div className='grid grid-cols-4 gap-10 my-5'>
                     {
-                        productsArray.map((product, index) => {
+                        productsArray.map((index) => {
                             return (
                                 <ProductCard key={index} />
                             )

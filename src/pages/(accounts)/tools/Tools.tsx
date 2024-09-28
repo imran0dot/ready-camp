@@ -1,12 +1,10 @@
 import React from 'react';
-import HeadingPrimary from '../../../components/widgets/HeadingPrimary';
 
 const Tools: React.FC = () => {
     return (
         <div>
-            {/* <HeadingPrimary>Camping Tools</HeadingPrimary> */}
 
-            hidsfsdfsd 
+            This is the toolas page 
         </div>
     );
 };

@@ -8,7 +8,7 @@ const Account: React.FC = () => {
     return (
         <div className='flex'>
             <AccountSidebar />
-            <div className='p-4 w-full h-[400vh]'>
+            <div className='p-4 w-full'>
                 <div className='flex justify-between items-center '>
                     <div>
                         <UserView />

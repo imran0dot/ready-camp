@@ -7,14 +7,14 @@ import Gadgets from "../pages/gadgets/Gadgets";
 import Tools from "../pages/(accounts)/tools/Tools";
 import ProtectedRoutes from "../components/layout/ProtectedRoutes";
 import Account from "../pages/(accounts)/account/Account";
-import { ArchiveBoxArrowDownIcon, ArchiveBoxIcon, ArrowPathIcon, BookOpenIcon, GiftIcon, PencilIcon, PresentationChartBarIcon } from "@heroicons/react/24/outline";
+import { ArchiveBoxIcon, ArrowPathIcon, GiftIcon, PencilIcon, PresentationChartBarIcon } from "@heroicons/react/24/outline";
 import OrderList from "../pages/(accounts)/orderList/OrderList";
 import ProductsList from "../pages/(accounts)/products/ProductsList";
 import SingleProduct from "../pages/(products)/singleProduct/SingleProduct";
 import Products from "../pages/(products)/products/Products";
 
 
-interface ExtendedRouteObject {
+export interface ExtendedAdminRouteObject {
   path: string;
   icon?: JSX.Element;
   element: JSX.Element;
@@ -33,7 +33,7 @@ interface ExtendedNavObject {
   element: JSX.Element;
 }
 
-export const adminRoutes: ExtendedRouteObject[] = [
+export const adminRoutes: ExtendedAdminRouteObject[] = [
   {
     path: "tools",
     icon: <PresentationChartBarIcon />,
@@ -41,7 +41,7 @@ export const adminRoutes: ExtendedRouteObject[] = [
   },
   {
     path: "products",
-    icon: <PresentationChartBarIcon />,
+    icon: <GiftIcon />,
     element: <ProductsList />,
     subMenu: [
       {
@@ -67,7 +67,21 @@ export const adminRoutes: ExtendedRouteObject[] = [
   {
     path: "order",
     icon: <ArrowPathIcon />,
-    element: <OrderList />
+    element: <OrderList />,
+    subMenu: [
+      {
+        path: "products",
+        name:'Order List',
+        icon: <GiftIcon />,
+        element: <ProductsList />,
+      },
+      {
+        path: "products",
+        name:'Create Order',
+        icon: <PencilIcon />,
+        element: <ProductsList />,
+      }
+    ]
   },
 ];
 
