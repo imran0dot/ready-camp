@@ -125,6 +125,11 @@ declare module "@material-tailwind/react" {
     onPointerEnterCapture?: unknown
     onPointerLeaveCapture?: unknown
   }
+  export interface DrawerProps extends EventCapture {
+    placeholder?: unknown;
+    onPointerEnterCapture?: unknown
+    onPointerLeaveCapture?: unknown
+  }
 }
 
 createRoot(document.getElementById('root')!).render(
