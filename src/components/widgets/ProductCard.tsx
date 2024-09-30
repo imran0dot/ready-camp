@@ -14,11 +14,14 @@ const ProductCard: React.FC = () => {
                 <div className="flex flex-col gap-1 mt-4 px-4">
                     <h2 className="text-lg font-semibold text-gray-800 dark:text-gray-50">Name view</h2>
                     <span className="font-normal text-gray-600 dark:text-gray-300">Category view</span>
-                    <span className="font-semibold text-gray-800 dark:text-gray-50">$60</span>
+                    <div className='flex justify-between'>
+                        <span className="font-semibold text-gray-800 dark:text-gray-50">stock: 5</span>
+                        <span className="font-semibold text-gray-800 dark:text-gray-50">$60</span>
+                    </div>
                 </div>
 
                 <div className="flex gap-4 mt-4 px-4">
-                <Rating value={5} readonly />
+                    <Rating value={5} readonly />
                 </div>
 
                 <div className="mt-4 p-4 border-t border-gray-200 dark:border-gray-500">

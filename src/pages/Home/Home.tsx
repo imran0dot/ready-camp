@@ -11,6 +11,7 @@ import backToSchoolImage from "../../assets/backtoschool.webp"
 import PeterStromImage from "../../assets/peter-strom.webp"
 import halfPriceImage from "../../assets/half-price.webp"
 import ProductCard from '../../components/widgets/ProductCard';
+import ContactForm from '../../components/forms/ContactForm';
 
 
 type TCategory = {
@@ -139,8 +140,19 @@ const Home: React.FC = () => {
                 </Wrapper>
             </section>
 
+
+            {/* Contact us section  */}
+            <section>
+                <Wrapper>
+                    <ContactForm />
+                </Wrapper>
+            </section>
+
         </>
     );
 };
 
 export default Home;
+
+
+
