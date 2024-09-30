@@ -1,4 +1,4 @@
-import { Button, Input, Select } from '@material-tailwind/react';
+import { Button, Input } from '@material-tailwind/react';
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 

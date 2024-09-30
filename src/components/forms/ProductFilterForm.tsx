@@ -1,3 +1,4 @@
+import { Button } from '@material-tailwind/react';
 import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 
@@ -10,7 +11,7 @@ type FilterFormInputs = {
 };
 
 const ProductFilterForm: React.FC = () => {
-    const {register,handleSubmit} = useForm<FilterFormInputs>();
+    const { register, handleSubmit } = useForm<FilterFormInputs>();
 
     const onSubmit: SubmitHandler<FilterFormInputs> = (data) => {
         console.log(data);
@@ -57,9 +58,15 @@ const ProductFilterForm: React.FC = () => {
                         <option value="5">5 Stars</option>
                     </select>
                 </div>
-                <button type="submit" className="w-full bg-blue-800 text-white p-2 rounded">
-                    Apply Filters
-                </button>
+                <div>
+                    <Button color='blue' size='md' type="submit" className="w-full text-white rounded">
+                        Apply Filters
+                    </Button>
+
+                    <Button variant='outlined' color='blue' size='md' className="w-full mt-2 rounded">
+                        Clear Filters
+                    </Button>
+                </div>
             </form>
         </div>
     );
