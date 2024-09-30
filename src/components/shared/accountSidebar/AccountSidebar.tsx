@@ -33,7 +33,7 @@ export const AccountSidebar = () => {
                     <div>
                         {
                             adminRoutes.map((route, index) => {
-                                if (route?.subMenu) {
+                                if (route?.children) {
                                     return (
                                         <Accordion className="capitalize" open={open === index + 1}>
 
@@ -43,7 +43,7 @@ export const AccountSidebar = () => {
                                                         <span className="h-5 w-5">{route.icon}</span>
                                                     </ListItemPrefix>
                                                     <span className="text-sm">
-                                                        {route.path}
+                                                        {route.name}
                                                     </span>
                                                 </div>
                                                 <ChevronDownIcon className={`w-5 transition-all ${open === index + 1 && 'rotate-180'}`} />
@@ -51,7 +51,7 @@ export const AccountSidebar = () => {
 
                                             <AccordionBody >
                                                 <div>
-                                                    {route?.subMenu.map((subMenu, index) => <Link key={index} to={subMenu.path}>
+                                                    {route?.children.map((subMenu, index) => <Link key={index} to={subMenu.path}>
                                                         <ListItem className="pl-9">
                                                             <ListItemPrefix >
                                                                 <span className="h-5 w-5">{subMenu.icon}</span>

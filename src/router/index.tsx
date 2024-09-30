@@ -7,25 +7,19 @@ import Gadgets from "../pages/gadgets/Gadgets";
 import Tools from "../pages/(accounts)/tools/Tools";
 import ProtectedRoutes from "../components/layout/ProtectedRoutes";
 import Account from "../pages/(accounts)/account/Account";
-import { ArchiveBoxIcon, ArrowPathIcon, GiftIcon, PencilIcon, PresentationChartBarIcon } from "@heroicons/react/24/outline";
-import OrderList from "../pages/(accounts)/orderList/OrderList";
+import { ArchiveBoxIcon, GiftIcon, PencilIcon, PresentationChartBarIcon } from "@heroicons/react/24/outline";
 import ProductsList from "../pages/(accounts)/products/ProductsList";
 import SingleProduct from "../pages/(products)/singleProduct/SingleProduct";
 import Products from "../pages/(products)/products/Products";
-
+import CreateProduct from "../pages/(accounts)/products/CreateProduct";
 
 export interface ExtendedAdminRouteObject {
   path: string;
+  name: string;
   icon?: JSX.Element;
   element: JSX.Element;
-  subMenu?: {
-    path: string;
-    name: string;
-    icon?: JSX.Element;
-    element: JSX.Element;
-  }[]
+  children?: ExtendedAdminRouteObject[];
 }
-
 
 interface ExtendedNavObject {
   path: string;
@@ -35,30 +29,32 @@ interface ExtendedNavObject {
 
 export const adminRoutes: ExtendedAdminRouteObject[] = [
   {
-    path: "tools",
+    path: "dashboard",
+    name: "Dashboard",
     icon: <PresentationChartBarIcon />,
-    element: <Tools />
+    element: <></>
   },
   {
     path: "products",
+    name: "Products",
     icon: <GiftIcon />,
     element: <ProductsList />,
-    subMenu: [
+    children: [
       {
-        path: "products",
-        name:'Products List',
+        path: "",
+        name: 'Products List',
         icon: <GiftIcon />,
         element: <ProductsList />,
       },
       {
-        path: "products",
-        name:'Create Products',
+        path: "create-product",
+        name: 'Create Product',
         icon: <PencilIcon />,
-        element: <ProductsList />,
+        element: <CreateProduct />,
       },
       {
-        path: "products",
-        name:'Category',
+        path: "category",
+        name: 'Category',
         icon: <ArchiveBoxIcon />,
         element: <ProductsList />,
       },
@@ -66,69 +62,66 @@ export const adminRoutes: ExtendedAdminRouteObject[] = [
   },
   {
     path: "order",
-    icon: <ArrowPathIcon />,
-    element: <OrderList />,
-    subMenu: [
-      {
-        path: "products",
-        name:'Order List',
-        icon: <GiftIcon />,
-        element: <ProductsList />,
-      },
-      {
-        path: "products",
-        name:'Create Order',
-        icon: <PencilIcon />,
-        element: <ProductsList />,
-      }
-    ]
-  },
+    name: "Dashboard",
+    icon: <PresentationChartBarIcon />,
+    element: <></>
+  }
 ];
 
+const adminNestedRoutes = () => {
+  const childrenRoutes: ExtendedAdminRouteObject[] = [];
+  
+  adminRoutes.forEach(element => {
+    if (element.children) {
+      childrenRoutes.push(...element.children); 
+    }
+  });
+
+  return childrenRoutes;
+};
+const adminSubmenu = adminNestedRoutes();
 
 export const navigationItems: ExtendedNavObject[] = [
   {
     path: "/",
-    name: 'home',
+    name: 'Home',
     element: <Home />
   },
   {
     path: "/shop",
-    name: 'shop',
+    name: 'Shop',
     element: <Products />
   },
   {
     path: "/gadgets",
-    name: 'gadgets',
+    name: 'Gadgets',
     element: <Gadgets />
   },
   {
     path: "/tools",
-    name: 'tools',
+    name: 'Tools',
     element: <Tools />
   },
   {
     path: "/about",
-    name: 'about',
+    name: 'About',
     element: <About />
-  }
+  },
 ];
-
 
 export const systemRoutes: RouteObject[] = [
   {
     path: "/cart",
     element: <Cart />
   },
-]
+];
 
 const productRoutes: RouteObject[] = [
   {
     path: "product/:slug",
     element: <SingleProduct />
   },
-
-]
+];
 
 const routes: RouteObject[] = [
   {
@@ -137,15 +130,23 @@ const routes: RouteObject[] = [
     children: [
       ...navigationItems,
       ...productRoutes,
-      ...systemRoutes
+      ...systemRoutes,
+      {
+        path: "*",
+        element: <h1>404 Not Found</h1>, 
+      }
     ]
   },
   {
     path: "/account",
     element: <ProtectedRoutes><Account /></ProtectedRoutes>,
-    children: adminRoutes
-  }
-]
+    children: [
+      ...adminSubmenu
+    ]
+  },
+];
+
+
 
 const router = createBrowserRouter(routes);
 

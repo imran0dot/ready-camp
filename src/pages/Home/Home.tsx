@@ -10,6 +10,7 @@ import warehouseImage from "../../assets/warehouse-clearance.webp"
 import backToSchoolImage from "../../assets/backtoschool.webp"
 import PeterStromImage from "../../assets/peter-strom.webp"
 import halfPriceImage from "../../assets/half-price.webp"
+import ProductCard from '../../components/widgets/ProductCard';
 
 
 type TCategory = {
@@ -103,10 +104,22 @@ const Home: React.FC = () => {
                 </Wrapper>
             </section>
 
+            {/* Featured Products  */}
+            <section>
+                <Wrapper>
+                    <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5'>
+                        <ProductCard />
+                        <ProductCard />
+                        <ProductCard />
+                        <ProductCard />
+                    </div>
+                </Wrapper>
+            </section>
+
             {/* popular shopping  */}
             <section>
                 <Wrapper>
-                    <div 
+                    <div
                         className='
                             grid
                             grid-cols-2
@@ -114,14 +127,14 @@ const Home: React.FC = () => {
                             gap-5
                             m-5
                         '
-                        >
+                    >
                         {
                             popularShoppingList?.map((popularShopping, index) => <CategoryBox
                                 key={index}
                                 link={popularShopping.link}
                                 img={popularShopping.img}
                             />)
-                         }
+                        }
                     </div>
                 </Wrapper>
             </section>

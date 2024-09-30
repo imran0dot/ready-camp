@@ -115,6 +115,11 @@ declare module "@material-tailwind/react" {
     onPointerLeaveCapture?: unknown
     crossOrigin?: unknown
   }
+  export interface RatingProps extends EventCapture {
+    placeholder?: unknown;
+    onPointerEnterCapture?: unknown
+    onPointerLeaveCapture?: unknown
+  }
 }
 
 createRoot(document.getElementById('root')!).render(
