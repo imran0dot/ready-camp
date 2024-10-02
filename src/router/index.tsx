@@ -12,6 +12,7 @@ import ProductsList from "../pages/(accounts)/products/ProductsList";
 import SingleProduct from "../pages/(products)/singleProduct/SingleProduct";
 import Products from "../pages/(products)/products/Products";
 import CreateProduct from "../pages/(accounts)/products/CreateProduct";
+import Checkout from "../pages/checkout/Checkout";
 
 export interface ExtendedAdminRouteObject {
   path: string;
@@ -135,7 +136,7 @@ const routes: RouteObject[] = [
         path: "*",
         element: <h1>404 Not Found</h1>, 
       }
-    ]
+    ],
   },
   {
     path: "/account",
@@ -144,6 +145,10 @@ const routes: RouteObject[] = [
       ...adminSubmenu
     ]
   },
+  {
+    path: "/checkout",
+    element: <Checkout />
+  }
 ];
 
 

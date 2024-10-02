@@ -1,6 +1,7 @@
 import React from 'react';
 import CartItem from '../../components/widgets/CartItem';
 import HeadingPrimary from '../../components/widgets/HeadingPrimary';
+import { Link } from 'react-router-dom';
 
 const Cart: React.FC = () => {
     return (
@@ -38,7 +39,7 @@ const Cart: React.FC = () => {
                             <p className="text-sm text-gray-700">including VAT</p>
                         </div>
                     </div>
-                    <button className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">Check out</button>
+                    <Link to={'/checkout'} className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium block text-center text-blue-50 hover:bg-blue-600">Check out</Link>
                 </div>
             </div>
         </div>

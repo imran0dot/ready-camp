@@ -9,7 +9,7 @@ import {
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { switchModal } from "../../redux/features/loginModalSlice";
-import { useCurrentUser } from "../../redux/features/auth/authSlice";
+import { currentUser } from "../../redux/features/auth/authSlice";
 
 interface TNavMenuItem {
     name: string;
@@ -33,7 +33,7 @@ const navMenuList: TNavMenuItem[] = [
 const UserNav = () => {
     const dispatch = useAppDispatch();
 
-    const user = useAppSelector(useCurrentUser);
+    const user = useAppSelector(currentUser);
     return (
         <List
             className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 flex-row justify-end lg:p-1"
