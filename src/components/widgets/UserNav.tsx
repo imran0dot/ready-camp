@@ -10,6 +10,7 @@ import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../hooks/reduxHooks";
 import { switchModal } from "../../redux/features/loginModalSlice";
 import { currentUser } from "../../redux/features/auth/authSlice";
+import { totalCartItems } from "../../redux/features/addToCart/addToCart.slice";
 
 interface TNavMenuItem {
     name: string;
@@ -32,8 +33,8 @@ const navMenuList: TNavMenuItem[] = [
 
 const UserNav = () => {
     const dispatch = useAppDispatch();
-
     const user = useAppSelector(currentUser);
+    const cartItems = useAppSelector(totalCartItems);
     return (
         <List
             className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 flex-row justify-end lg:p-1"
@@ -83,6 +84,7 @@ const UserNav = () => {
 
                         </Button>
                     }
+
                     return <Link
                         key={index}
                         to={menu.link}
@@ -91,14 +93,15 @@ const UserNav = () => {
                     >
                         <ListItem
                             className="flex items-center py-2"
-
-
                         >
-                            <span className="w-5 mr-3">{menu.icon}</span>
+                            {cartItems && cartItems > 0 ?
+                                <sup className="">
+                                    <span className="bg-blue-500 text-white px-2 py-1 rounded-full">{cartItems}</span>
+                                </sup> : ""
+                            }
+                            <span className="w-5 mr-3">{menu.icon} </span>
                             <Typography
                                 className="hidden md:block"
-
-
                             >{menu.name}</Typography>
                         </ListItem>
 

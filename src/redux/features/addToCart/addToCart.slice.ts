@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { RootState } from "../../store";
 
 interface IAddToCart {
     name: string,
@@ -25,4 +26,5 @@ const addToCartSlice = createSlice({
 
 
 export const { addToCart } = addToCartSlice.actions;
+export const totalCartItems =  (state: RootState) => state.addToCart.cartItems?.length;
 export default addToCartSlice.reducer;
