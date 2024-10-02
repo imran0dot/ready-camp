@@ -11,19 +11,16 @@ import {
   REGISTER,
 } from "redux-persist";
 import storage from 'redux-persist/lib/storage';
+import addToCartReducer from './features/addToCart/addToCart.slice';
 
-
-const persistConfig = {
-  key: "auth",
-  storage
-};
-
-const persistedAuthReducer = persistReducer(persistConfig, authReducer);
+const persistedAuthReducer = persistReducer({key: "auth", storage}, authReducer);
+const persistedAddToCartReducer = persistReducer({key: 'addToCart', storage}, addToCartReducer)
 
 export const store = configureStore({
   reducer: {
     loginModal: loginReducer,
     auth: persistedAuthReducer,
+    addToCart: persistedAddToCartReducer,
     [baseApi.reducerPath]: baseApi.reducer,
   },
   middleware: (defaultMiddleware) => (defaultMiddleware({

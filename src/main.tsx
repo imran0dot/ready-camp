@@ -8,6 +8,7 @@ import router from './router/index.tsx'
 import { RouterProvider } from 'react-router-dom'
 import { } from "@material-tailwind/react";
 import { PersistGate } from 'redux-persist/integration/react'
+import { Toaster } from 'sonner'
 
 type EventCapture = {
   placeholder?: unknown;
@@ -138,6 +139,7 @@ createRoot(document.getElementById('root')!).render(
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <RouterProvider router={router} />
+          <Toaster richColors position='top-center' />
         </PersistGate>
       </Provider>
     </ThemeProvider>
