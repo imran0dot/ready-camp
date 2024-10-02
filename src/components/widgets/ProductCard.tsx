@@ -11,9 +11,11 @@ const ProductCard: React.FC = () => {
 
     const handleAddToCart = () => {
         const cartItems = {
-            name: "Imran",
-            price: '20',
-            quantity:  20,
+            id: '12',
+            sku: 'string',
+            name: 'string',
+            price: 'string',
+            quantity: 1
         }
         dispatch(addToCart(cartItems));
 
@@ -24,7 +26,7 @@ const ProductCard: React.FC = () => {
     return (
         <div className='shadow-md'>
             <div className="max-w-sm w-full bg-white rounded-lg shadow-lg overflow-hidden dark:bg-gray-700">
-                <Link  to={singlePageSlug}>
+                <Link to={singlePageSlug}>
                     <img className="object-cover h-64 w-full" src="https://images.unsplash.com/photo-1499696010180-025ef6e1a8f9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Converse sneakers" />
                 </Link>
 
@@ -42,11 +44,11 @@ const ProductCard: React.FC = () => {
                 </div>
 
                 <div className="mt-4 p-4 border-t border-gray-200 dark:border-gray-500">
-                    <button 
-                    onClick={handleAddToCart}
-                    className="w-full flex justify-between items-center font-bold cursor-pointer hover:underline text-gray-800 dark:text-gray-50">
+                    <button
+                        onClick={handleAddToCart}
+                        className="w-full flex justify-between items-center font-bold cursor-pointer hover:underline text-gray-800 dark:text-gray-50">
                         <span className="text-base">Add to Cart</span>
-                        <ShoppingCartIcon className='w-7'/>
+                        <ShoppingCartIcon className='w-7' />
                     </button>
                 </div>
             </div>

@@ -2,12 +2,14 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "../../store";
 
 interface IAddToCart {
+    id: string,
+    sku: string,
     name: string,
     price: string,
     quantity: number
 }
 
-const initialState: { cartItems: IAddToCart[] | null } = {
+const initialState: { cartItems: IAddToCart[] | [] } = {
     cartItems: []
 }
 const addToCartSlice = createSlice({
@@ -15,16 +17,23 @@ const addToCartSlice = createSlice({
     initialState,
     reducers: {
         addToCart: (state, action: PayloadAction<IAddToCart>) => {
-            if (state.cartItems) {
-                state.cartItems.push(action.payload);
+            const exactItem = state.cartItems.find(item => item.id === action.payload.id);
+            if (exactItem) {
+                exactItem.quantity += action.payload.quantity
             } else {
-                state.cartItems = [action.payload];
+                state.cartItems = [...state.cartItems, action.payload]
             }
+        },
+
+        removeAddToCart: (state, action: PayloadAction<{id: string}>) => {
+           const removeItem = state.cartItems.filter(item => item.id !== action.payload.id);
+           state.cartItems = [...removeItem]
         }
     }
 });
 
 
-export const { addToCart } = addToCartSlice.actions;
-export const totalCartItems =  (state: RootState) => state.addToCart.cartItems?.length;
+export const { addToCart, removeAddToCart } = addToCartSlice.actions;
+export const totalCartItems = (state: RootState) => state.addToCart.cartItems?.length;
+export const currentCartItems = (state: RootState) => state.addToCart.cartItems;
 export default addToCartSlice.reducer;

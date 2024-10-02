@@ -1,5 +1,8 @@
 import { XMarkIcon } from '@heroicons/react/24/outline';
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { removeAddToCart } from '../../redux/features/addToCart/addToCart.slice';
+import { toast } from 'sonner';
 
 type TCartItem = {
     image: string,
@@ -9,6 +12,12 @@ type TCartItem = {
 }
 
 const CartItem: React.FC<TCartItem> = ({ image, title, price, SKU }) => {
+    const dispatch = useDispatch();
+
+    const handleRemoveAddToCart = (id: string) => {
+        dispatch(removeAddToCart({id}));
+        toast.warning('Successfully removed Items from your product');
+    }
     return (
         <div
             className="
@@ -114,7 +123,8 @@ const CartItem: React.FC<TCartItem> = ({ image, title, price, SKU }) => {
                         <p className="text-sm">{price} ৳</p>
 
                         <XMarkIcon 
-                            className='w-6' />
+                            onClick={() => handleRemoveAddToCart("12")}
+                            className='w-10 rounded cursor-pointer border p-2' />
                     </div>
                 </div>
             </div>
