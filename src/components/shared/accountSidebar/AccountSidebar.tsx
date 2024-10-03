@@ -24,7 +24,7 @@ export const AccountSidebar = () => {
     const handleOpen = (value: number) => setOpen(open === value ? 0 : value);
 
     return (
-        <Card className="sticky top-0 z-10 w-full max-w-[17rem] min-h-[100vh] p-4 shadow-xl shadow-blue-gray-900/5" >
+        <Card className="sticky top-0 z-10 w-full max-w-[17rem] max-h-[100vh]  min-h-[100vh] p-4" >
             <div className="mb-2 p-4 w-6/12">
                 <Logo />
             </div>
