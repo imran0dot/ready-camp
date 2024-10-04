@@ -1,4 +1,4 @@
-import { Button, Card, Checkbox, Input, Option, Select, Typography } from '@material-tailwind/react';
+import { Checkbox, Input, Typography } from '@material-tailwind/react';
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import DashboardSceneWrapper from '../layout/DashboardSceneWrapper';
@@ -23,9 +23,6 @@ interface IProduct {
   dimensions: IDimensions;
   images?: string[];
 }
-
-
-const categories = ['Electronics', 'Clothing', 'Books', 'Home & Kitchen'];
 
 const ProductForm: React.FC = () => {
   const { control, handleSubmit, register, formState: { errors } } = useForm<IProduct>();

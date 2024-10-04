@@ -2,7 +2,6 @@ import {
     List,
     ListItem,
     ListItemPrefix,
-    Avatar,
     Card,
     Typography,
 } from "@material-tailwind/react";
