@@ -70,7 +70,7 @@ const ProductForm: React.FC = () => {
 
         {/* Price & Category  */}
         <div>
-          <div className='grid grid-cols-2 gap-3'>
+          <div className='grid grid-cols-1 md:grid-cols-2 gap-3'>
             <div>
               <Typography variant='h6' color='amber' className='mb-3'>Product Price</Typography>
               <div className='flex flex-col gap-3'>

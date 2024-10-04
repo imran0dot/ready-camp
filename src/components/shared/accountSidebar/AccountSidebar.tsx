@@ -28,8 +28,9 @@ export const AccountSidebar = () => {
             <div className="mb-2 p-4 w-6/12">
                 <Logo />
             </div>
+
             <List style={{ height: '100%' }}>
-                <div className="flex flex-col justify-between w-full h-full">
+                <div className="flex flex-col justify-between w-full h-full ">
                     <div>
                         {
                             adminRoutes.map((route, index) => {

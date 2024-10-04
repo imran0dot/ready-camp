@@ -13,6 +13,7 @@ import SingleProduct from "../pages/(products)/singleProduct/SingleProduct";
 import Products from "../pages/(products)/products/Products";
 import CreateProduct from "../pages/(accounts)/products/CreateProduct";
 import Checkout from "../pages/checkout/Checkout";
+import Category from "../pages/(accounts)/products/Category";
 
 export interface ExtendedAdminRouteObject {
   path: string;
@@ -57,7 +58,7 @@ export const adminRoutes: ExtendedAdminRouteObject[] = [
         path: "category",
         name: 'Category',
         icon: <ArchiveBoxIcon />,
-        element: <ProductsList />,
+        element: <Category />,
       },
     ]
   },
